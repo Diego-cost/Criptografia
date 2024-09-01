@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Criptografia Simples</title>
+    <style>
+        /* Estilo geral */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container centralizado */
+        .container {
+            background-color: #ffffff;
+            padding: 30px 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333333;
+            margin-bottom: 30px;
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            width: 100%;
+            font-size: 16px;
+            border: 2px solid #dddddd;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #1e90ff;
+            outline: none;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: #1e90ff;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #1c86ee;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #666666;
+        }
+
+        p span {
+            font-weight: bold;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Criptografia Simples</h1>
+        <input type="text" id="textoInput" placeholder="Digite o texto">
+        <button onclick="criptografar()">Criptografar</button>
+        <p>Texto Criptografado: <span id="textoCriptografado"></span></p>
+    </div>
+
+    <script>
+        function criptografar() {
+            var texto = document.getElementById("textoInput").value;
+            var textoCriptografado = "";
+
+            // Criptografia simples - substitui cada caractere pelo próximo na tabela ASCII
+            for (var i = 0; i < texto.length; i++) {
+                textoCriptografado += String.fromCharCode(texto.charCodeAt(i) + 1);
+            }
+
+            document.getElementById("textoCriptografado").innerText = textoCriptografado;
+        }
+    </script>
+</body>
+</html>
